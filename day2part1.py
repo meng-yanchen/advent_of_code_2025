@@ -1,4 +1,4 @@
-
+# part 1 of question
 import os 
 with open("input.txt", "r") as file:
     input = file.read()
