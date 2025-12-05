@@ -10,31 +10,23 @@ input = [
     ".@@@@@@@@.",
     "@.@.@@@.@.",
 ]
-
 with open('input.txt', 'r') as file:
     input = file.read()
 input = input.split('\n')
-
-accessable_roles = 0
 
 grid = {}
 i = 1
 grid[0] = "." * (len(input[0]) +2)
 for line in input:
-    # print(line)
     grid[i] = "." + line +"."
     i += 1
 grid[len(input)+1] = "." * (len(input[0]) +2)
 
-coordinates = {}
+accessable_roles = 0
+
 for row in range(1, len(grid) -1):
-    # print("row above :", grid[row -1])
-    # print(f"row: {row} => {grid[row]}")
     for col in range(1, len(grid[row]) -1):
-        # print(f"  col: {grid[row][col]}", row, col)
         current = grid[row][col]
-        # print(f"row: {row} col: {col} current: {current}")
-        # check sourrounding
         surrounding = 0
         up = grid[row -1][col]
         if up == "@":
@@ -62,7 +54,5 @@ for row in range(1, len(grid) -1):
             surrounding += 1
         if surrounding < 4 and current == "@":
             accessable_roles += 1
-            # coordinates[(row, col)] = current
 
-# print("coordinates:", coordinates)
-print(f"accessable_roles: {accessable_roles}")
+print(f"answer: {accessable_roles}")

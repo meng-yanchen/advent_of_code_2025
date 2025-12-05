@@ -22,7 +22,6 @@ for line in input:
     i += 1
 grid[len(input)+1] = "." * (len(input[0]) +2)
 
-
 def extract_roles(grid):
     accessable_roles = 0
     grid_copy = grid
